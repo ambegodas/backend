@@ -2,7 +2,9 @@
  * @autor pathmasri
  * Nov 22, 2015 6:27:10 PM
  */
-package com.ambegodas.backend.service.impl;
+package com.ambegodas.backend.serviceimpl;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,8 +43,10 @@ public class ProductServiceImpl implements ProductService {
 	 * @see com.ambegodas.backend.service.ProductService#getProducts()
 	 */
 	public ProductList getProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> accounts = productDao.getProducts();
+		ProductList productList = new ProductList();
+		productList.setProducts(accounts);
+		return productList ;
 	}
 
 	/* (non-Javadoc)

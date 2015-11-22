@@ -44,12 +44,10 @@ private ProductService productService;
 			return new ResponseEntity<ProductResource>(res,HttpStatus.OK);
 		} else {
 			return new ResponseEntity<ProductResource>(HttpStatus.NOT_FOUND);
-		}
-		
-		
+		}				
 	}
 
-	@RequestMapping(value = "/products", method = RequestMethod.POST)
+	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	public ResponseEntity<ProductResource> addProduct(@RequestBody Product product){
 
 		Product newProduct = productService.addProduct(product);
@@ -79,6 +77,18 @@ private ProductService productService;
 		} else {
 			return new ResponseEntity<ProductResource>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@RequestMapping(value = "/product", method = RequestMethod.DELETE)
+	public ResponseEntity<ProductResource> deleteProduct(@RequestBody Product product){
+		try{
+			productService.deleteProduct(product);
+			return new ResponseEntity<ProductResource>(HttpStatus.OK);
+		} catch(Exception e){
+			e.printStackTrace();
+			return new ResponseEntity<ProductResource>(HttpStatus.EXPECTATION_FAILED);
+		}
+				
 	}
 
 }

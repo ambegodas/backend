@@ -34,7 +34,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public void deleteProduct(Product product) {
-		em.remove(product);
+		em.remove(em.contains(product) ? product : em.merge(product));
 		
 	}
 

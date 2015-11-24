@@ -54,7 +54,7 @@ public class CustomerController {
 
 		if(newCustomer != null){
 			CustomerResource res = new CustomerResourceAsm().toResource(newCustomer);
-			return new ResponseEntity<CustomerResource>(res,HttpStatus.OK);
+			return new ResponseEntity<CustomerResource>(res,HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<CustomerResource>(HttpStatus.NOT_FOUND);
 		}
@@ -88,6 +88,12 @@ public class CustomerController {
 			e.printStackTrace();
 			return new ResponseEntity<CustomerResource>(HttpStatus.EXPECTATION_FAILED);
 		}
+				
+	}
+	
+	@RequestMapping(value="/customersByCode/{code}", method=RequestMethod.GET)
+	public @ResponseBody Customer getCustomerByCode(@PathVariable String code){
+		return customerService.getCustomerByCode(code);
 				
 	}
 }

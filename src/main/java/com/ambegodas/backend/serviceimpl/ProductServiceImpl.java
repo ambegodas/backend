@@ -23,8 +23,8 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDao productDao;
 	
 
-	public Product getProduct(long productId) {
-		return productDao.getProduct(productId);
+	public Product getProduct(String productCode) {
+		return productDao.getProduct(productCode);
 	}
 
 	public Product updateProduct(Product product) {

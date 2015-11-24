@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ambegodas.backend.dao.CustomerDao;
 import com.ambegodas.backend.model.Customer;
+import com.ambegodas.backend.model.Product;
 
 @Repository
 public class CustomerDaoImpl implements CustomerDao{
@@ -51,23 +52,16 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	/* (non-Javadoc)
-	 * @see com.ambegodas.backend.dao.CustomerDao#sellCustomer(int, long)
+	 * @see com.ambegodas.backend.dao.CustomerDao#getCustomer(java.lang.String)
 	 */
-	public boolean sellCustomer(int soldCount, long customerId) {
-		String queryString = "UPDATE Customer p SET p.availableQty = p.availableQty- :soldCount, p.soldQty = p.soldQty + :soldCount "+
-				" WHERE p.customerId= :id";
-		Query query = em.createQuery(queryString);
-
-		query.setParameter("soldCount", soldCount);
-		query.setParameter("id", customerId);
-
-		int updateCount = query.executeUpdate();
-
-		if (updateCount > 0) {
-			return true;
-		}
-		return false;
+	public Customer getCustomer(String customerCode) {
+		String queryStr = "select c from Customer c WHERE c.code = :code";
+		Query query = em.createQuery(queryStr);
+		query.setParameter("code", customerCode);	
+		Customer c = (Customer)query.getSingleResult();	
+		return c;
 	}
 
+	
 
 }

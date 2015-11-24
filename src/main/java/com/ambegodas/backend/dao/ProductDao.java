@@ -10,7 +10,7 @@ import com.ambegodas.backend.model.Product;
 
 public interface ProductDao {
 
-    public Product getProduct(long  productId);
+    public Product getProduct(String  productCode);
     public Product updateProduct(Product product);
     public void deleteProduct(Product product);
     public Product addProduct(Product product);

@@ -50,10 +50,11 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.ambegodas.backend.service.CustomerService#sellCustomer(int)
+	 * @see com.ambegodas.backend.service.CustomerService#getCustomerByCode(java.lang.String)
 	 */
-	public boolean sellCustomer(int soldCount) {
+	public Customer getCustomerByCode(String code) {
 		// TODO Auto-generated method stub
-		return false;
+		return customerDao.getCustomer(code);
 	}
+
 }

@@ -10,7 +10,7 @@ public class ProductResource extends ResourceSupport {
 
 	private long productId;
 	private String code;
-	private String productName;
+	private String description;
 	private Double price;
 	private int quantity;
 	/**
@@ -62,16 +62,16 @@ public class ProductResource extends ResourceSupport {
 		this.productId = productId;
 	}
 	/**
-	 * @return the productName
+	 * @return the description
 	 */
-	public String getProductName() {
-		return productName;
+	public String getDescription() {
+		return description;
 	}
 	/**
-	 * @param productName the productName to set
+	 * @param description the description to set
 	 */
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

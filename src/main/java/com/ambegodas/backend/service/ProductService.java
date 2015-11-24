@@ -9,7 +9,7 @@ import com.ambegodas.backend.service.util.ProductList;
 
 public interface ProductService {
 
-	public Product getProduct(long productId);
+	public Product getProduct(String productId);
 	public Product updateProduct(Product product);
 	public void deleteProduct(Product product);
 	public Product addProduct(Product product);

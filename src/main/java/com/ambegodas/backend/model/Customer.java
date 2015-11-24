@@ -4,6 +4,7 @@
  */
 package com.ambegodas.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ public class Customer {
 	
 	@Id @GeneratedValue
 	private long customerId;
+	@Column(unique=true)
 	private String code;
 	private String name;
 	private String address;

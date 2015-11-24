@@ -23,9 +23,13 @@ public class ProductDaoImpl implements ProductDao {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Product getProduct(long productId) {
+	public Product getProduct(String productCode) {
 		// TODO Auto-generated method stub
-		return em.find(Product.class, productId);
+		String queryStr = "select p from Product p WHERE p.code = :code";
+		Query query = em.createQuery(queryStr);
+		query.setParameter("code", productCode);	
+		Product p = (Product)query.getSingleResult();	
+		return p;
 	}
 
 	public Product updateProduct(Product product) {

@@ -14,6 +14,6 @@ public interface CustomerService {
 	public Customer updateCustomer(Customer customer);
 	public void deleteCustomer(Customer customer);
 	public Customer addCustomer(Customer customer);
+	public Customer getCustomerByCode(String code);
 	public CustomerList getCustomers();
-	public boolean sellCustomer(int soldCount);
 }

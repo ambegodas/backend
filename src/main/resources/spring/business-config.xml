@@ -35,7 +35,7 @@
 		</property>
 		<property name="jpaProperties">
 			<map>
-				<entry key="hibernate.hbm2ddl.auto" value="create"></entry>
+				<entry key="hibernate.hbm2ddl.auto" value="update"></entry>
 				<entry key="hibernate.show_sql" value="true"></entry>
 			</map>
 		</property>

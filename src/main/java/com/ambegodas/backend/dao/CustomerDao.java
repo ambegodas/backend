@@ -10,10 +10,11 @@ import com.ambegodas.backend.model.Customer;
 
 public interface CustomerDao {
 
-	 public Customer getCustomer(long  customerId);
+	    public Customer getCustomer(long  customerId);
 	    public Customer updateCustomer(Customer customer);
 	    public void deleteCustomer(Customer customer);
 	    public Customer addCustomer(Customer customer);
 	    public List<Customer> getCustomers();
-	    public boolean sellCustomer(int soldCount,long customerId);
+	    public Customer getCustomer(String customerCode);
+
 }

@@ -4,6 +4,7 @@
  */
 package com.ambegodas.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,8 +14,9 @@ public class Product {
 	
 	@Id @GeneratedValue
 	private long productId;
+	@Column(unique=true)
 	private String code;
-	private String productName;
+	private String description;
 	private Double price;
 	private int quantity;
 	/**
@@ -66,16 +68,18 @@ public class Product {
 		this.productId = productId;
 	}
 	/**
-	 * @return the productName
+	 * @return the description
 	 */
-	public String getProductName() {
-		return productName;
+	public String getDescription() {
+		return description;
 	}
 	/**
-	 * @param productName the productName to set
+	 * @param description the description to set
 	 */
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setDescription(String description) {
+		this.description = description;
 	}
+	
+	
 	
 }

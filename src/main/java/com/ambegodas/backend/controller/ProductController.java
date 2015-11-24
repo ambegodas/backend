@@ -34,17 +34,18 @@ private ProductService productService;
 	public ProductController(){
 	}
 	
-	@RequestMapping(value="/products/{productId}", method=RequestMethod.GET)
-	public ResponseEntity<ProductResource> getProduct(@PathVariable long productId){
+	@RequestMapping(value="/products/{productCode}", method=RequestMethod.GET)
+	public @ResponseBody Product getProduct(@PathVariable String productCode){
 	
-		Product product = productService.getProduct(productId);
+		Product product = productService.getProduct(productCode);
+		return product;
 		
-		if(product != null){
-			ProductResource res = new ProductResourceAsm().toResource(product);
-			return new ResponseEntity<ProductResource>(res,HttpStatus.OK);
-		} else {
-			return new ResponseEntity<ProductResource>(HttpStatus.NOT_FOUND);
-		}				
+//		if(product != null){
+//			ProductResource res = new ProductResourceAsm().toResource(product);
+//			return new ResponseEntity<ProductResource>(res,HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<ProductResource>(HttpStatus.NOT_FOUND);
+//		}				
 	}
 
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
@@ -54,7 +55,7 @@ private ProductService productService;
 
 		if(newProduct != null){
 			ProductResource res = new ProductResourceAsm().toResource(newProduct);
-			return new ResponseEntity<ProductResource>(res,HttpStatus.OK);
+			return new ResponseEntity<ProductResource>(res,HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<ProductResource>(HttpStatus.NOT_FOUND);
 		}
